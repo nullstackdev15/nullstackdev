@@ -149,6 +149,11 @@
     <!-- Page Loader -->
     <div id="page-loader" class="loader">
         <div class="loader-content">
+            <!-- Circular Logo in Loader -->
+            <div
+                class="h-16 w-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary flex items-center justify-center">
+                <img src="assets/img/logo.png" alt="Nullstack Digital Logo" class="h-full w-full object-cover">
+            </div>
             <div class="loader-logo text-gradient">Nullstack<span class="text-accent">Digital</span></div>
             <div class="loader-dots">
                 <div class="loader-dot"></div>
@@ -163,6 +168,11 @@
     <nav class="fixed w-full z-50 py-4 px-8 bg-dark bg-opacity-90 backdrop-blur-md border-b border-gray-800">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center">
+                <!-- Circular Logo in Navigation -->
+                <div
+                    class="h-10 w-10 mr-3 rounded-full overflow-hidden border-2 border-primary flex items-center justify-center">
+                    <img src="assets/img/logo.png" alt="Nullstack Digital Logo" class="h-full w-full object-cover">
+                </div>
                 <span class="text-2xl font-bold text-gradient">Nullstack<span class="text-accent">Digital</span></span>
             </div>
             <div class="hidden lg:flex space-x-10">
@@ -210,7 +220,6 @@
             </div>
         </div>
     </nav>
-
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden section-hidden">
@@ -731,9 +740,9 @@
                                     class="w-12 h-12 bg-gray-900 bg-opacity-50 rounded-xl flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary border border-gray-800 transition-all duration-300 stagger-item">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="#"
+                                <a href="https://www.tiktok.com/@nullstack.dev"
                                     class="w-12 h-12 bg-gray-900 bg-opacity-50 rounded-xl flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary border border-gray-800 transition-all duration-300 stagger-item">
-                                    <i class="fab fa-linkedin-in"></i>
+                                    <i class="fab fa-tiktok text-xl"></i>
                                 </a>
                             </div>
                         </div>
@@ -747,10 +756,15 @@
     <footer class="bg-dark py-16 border-t border-gray-800 section-hidden">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-8 md:mb-0">
-                    <span class="text-2xl font-bold text-gradient">Nullstack<span
-                            class="text-accent">Digital</span></span>
-                    <p class="mt-2 text-gray-500">Building custom websites from scratch</p>
+                <div class="mb-8 md:mb-0 flex items-center">
+                    <!-- Circular Image Logo -->
+                    <img src="assets/img/logo.png" alt="Nullstack Digital Logo"
+                        class="h-12 w-12 mr-4 rounded-full object-cover border-2 border-primary">
+                    <div>
+                        <span class="text-2xl font-bold text-gradient">Nullstack<span
+                                class="text-accent">Digital</span></span>
+                        <p class="mt-2 text-gray-500">Building custom websites from scratch</p>
+                    </div>
                 </div>
                 <div class="flex space-x-6">
                     <a href="https://www.facebook.com/profile.php?id=61580511684341"
@@ -763,8 +777,9 @@
                     <a href="#" class="text-gray-500 hover:text-primary transition-colors duration-300">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-primary transition-colors duration-300">
-                        <i class="fab fa-linkedin-in text-xl"></i>
+                    <a href="https://www.tiktok.com/@nullstack.dev"
+                        class="text-gray-500 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-tiktok text-xl"></i>
                     </a>
                 </div>
             </div>
@@ -773,6 +788,12 @@
             </div>
         </div>
     </footer>
+
+      <!-- Enhanced Back to Top Button -->
+    <button id="back-to-top" class="opacity-0 invisible">
+        <div class="progress-circle"></div>
+        <i class="fas fa-arrow-up text-xl arrow-icon"></i>
+    </button>
 
     <script src="assets/js/script.js"></script>
 </body>

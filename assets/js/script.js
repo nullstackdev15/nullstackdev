@@ -157,4 +157,46 @@ function initAnimations() {
             repeat: -1
         }
     );
-} 
+}
+
+ // Enhanced Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        const progressCircle = backToTopButton.querySelector('.progress-circle');
+        
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPosition = window.pageYOffset;
+            const scrollPercentage = (scrollPosition / scrollHeight) * 100;
+            
+            // Update progress circle
+            progressCircle.style.setProperty('--progress', `${scrollPercentage}%`);
+            
+            // Show/hide button
+            if (scrollPosition > 300) {
+                backToTopButton.classList.remove('invisible');
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+                backToTopButton.classList.add('invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add ripple effect on click
+        backToTopButton.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple-effect');
+            ripple.style.left = `${e.offsetX}px`;
+            ripple.style.top = `${e.offsetY}px`;
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
