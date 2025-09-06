@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nullstack Digital | Premium Web Development</title>
     <link rel="icon" type="image/png" href="assets/img/logo.png">
@@ -52,6 +52,97 @@
             }
         }
     </script>
+    <style>
+        /* Fix for About section images on mobile */
+        @media (max-width: 768px) {
+            #about .flex.items-center.stagger-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #about .w-24.h-24 {
+                width: 100px;
+                height: 100px;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            #about .flex.space-x-2 {
+                justify-content: center;
+            }
+
+            #about .max-w-md {
+                max-width: 100%;
+                padding: 1.5rem;
+            }
+
+            #about .relative .absolute.-inset-8 {
+                display: none;
+            }
+        }
+
+        /* Ensure images maintain aspect ratio */
+        #about img {
+            width: 100px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 70%;
+        }
+
+        /* Additional styling for team member images */
+        #about .w-24.h-24 {
+            overflow: hidden;
+        }
+
+        #about .w-24.h-24.bg-gradient-to-br {
+            padding: 0.5rem;
+        }
+
+        /* Fix for About section images on mobile */
+        @media (max-width: 768px) {
+            #about .flex.items-center.stagger-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #about .w-24.h-24 {
+                width: 100px;
+                height: 100px;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            #about .flex.space-x-2 {
+                justify-content: center;
+            }
+
+            #about .max-w-md {
+                max-width: 100%;
+                padding: 1.5rem;
+            }
+
+            #about .relative .absolute.-inset-8 {
+                display: none;
+            }
+        }
+
+        /* Ensure images maintain aspect ratio */
+        #about img {
+            width: 100px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 70%;
+        }
+
+        /* Additional styling for team member images */
+        #about .w-24.h-24 {
+            overflow: hidden;
+        }
+
+        #about .w-24.h-24.bg-gradient-to-br {
+            padding: 0.5rem;
+        }
+    </style>
 </head>
 
 <body class="bg-dark text-gray-200 overflow-x-hidden">
@@ -520,7 +611,7 @@
                                 <div class="flex items-center stagger-item">
                                     <div
                                         class="w-24 h-24 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center text-white text-4xl mr-6">
-                                       <img src="assets/img/giff.png" alt="Backend Dev">
+                                        <img src="assets/img/giff.png" alt="Backend Dev">
                                     </div>
                                     <div>
                                         <h4 class="font-bold text-light text-xl">Backend Specialist</h4>
