@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nullstack Digital | Premium Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066ff',
+                        secondary: '#ff3e80',
+                        accent: '#00c2ff',
+                        dark: '#0f172a',
+                        light: '#f8fafc',
+                        gradientStart: '#0066ff',
+                        gradientMid: '#8040ff',
+                        gradientEnd: '#ff3e80'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-dark text-gray-200 overflow-x-hidden">
+    <!-- Page Loader -->
+    <div id="page-loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo text-gradient">Nullstack<span class="text-accent">Digital</span></div>
+            <div class="loader-dots">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+            </div>
+            <p class="mt-4 text-gray-400">Loading your digital experience...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-4 px-8 bg-dark bg-opacity-90 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-gradient">Nullstack<span class="text-accent">Digital</span></span>
+            </div>
+            <div class="hidden lg:flex space-x-10">
+                <a href="#home"
+                    class="text-light hover:text-primary font-medium transition-colors duration-300 nav-link">Home</a>
+                <a href="#services"
+                    class="text-light hover:text-primary font-medium transition-colors duration-300 nav-link">Services</a>
+                <a href="#process"
+                    class="text-light hover:text-primary font-medium transition-colors duration-300 nav-link">Process</a>
+                <a href="#about"
+                    class="text-light hover:text-primary font-medium transition-colors duration-300 nav-link">About</a>
+                <a href="#contact"
+                    class="text-light hover:text-primary font-medium transition-colors duration-300 nav-link">Contact</a>
+            </div>
+            <div class="lg:hidden">
+                <button id="menu-btn" class="text-light focus:outline-none menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Improved Mobile Menu -->
+        <div id="mobile-menu"
+            class="mobile-menu lg:hidden bg-dark bg-opacity-95 backdrop-blur-lg px-4 mt-2 rounded-lg border border-gray-800 absolute w-full left-0">
+            <div class="py-4 space-y-3">
+                <a href="#home"
+                    class="block py-3 text-light hover:text-primary transition-all duration-300 border-b border-gray-800 mobile-nav-link pl-8">
+                    <i class="fas fa-home mr-3 w-5 text-center"></i>Home
+                </a>
+                <a href="#services"
+                    class="block py-3 text-light hover:text-primary transition-all duration-300 border-b border-gray-800 mobile-nav-link pl-8">
+                    <i class="fas fa-laptop-code mr-3 w-5 text-center"></i>Services
+                </a>
+                <a href="#process"
+                    class="block py-3 text-light hover:text-primary transition-all duration-300 border-b border-gray-800 mobile-nav-link pl-8">
+                    <i class="fas fa-cogs mr-3 w-5 text-center"></i>Process
+                </a>
+                <a href="#about"
+                    class="block py-3 text-light hover:text-primary transition-all duration-300 border-b border-gray-800 mobile-nav-link pl-8">
+                    <i class="fas fa-info-circle mr-3 w-5 text-center"></i>About
+                </a>
+                <a href="#contact"
+                    class="block py-3 text-light hover:text-primary transition-all duration-300 mobile-nav-link pl-8">
+                    <i class="fas fa-envelope mr-3 w-5 text-center"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden section-hidden">
+        <div class="absolute inset-0 hero-gradient opacity-20"></div>
+        <div
+            class="absolute top-20 right-10 w-72 h-72 bg-primary rounded-full filter blur-3xl opacity-20 floating-element">
+        </div>
+        <div
+            class="absolute bottom-10 left-10 w-96 h-96 bg-secondary rounded-full filter blur-3xl opacity-20 floating-element-delayed">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 w-80 h-80 bg-accent rounded-full filter blur-3xl opacity-20 floating-element-slow">
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-5xl md:text-6xl font-bold text-light mb-6 leading-tight">
+                        Premium <span class="text-gradient">Web Development</span> From Scratch
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">No templates. Pure code. Two expert developers crafting your
+                        perfect digital solution with Tailwind CSS and modern technologies.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact"
+                            class="bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            Start Your Project
+                        </a>
+                        <a href="#services"
+                            class="border border-gray-700 text-light font-bold py-4 px-8 rounded-lg hover:border-primary transition-all duration-300">
+                            Explore Our Work
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div
+                            class="absolute -inset-6 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-lg opacity-30">
+                        </div>
+                        <div
+                            class="relative bg-gray-900 bg-opacity-70 backdrop-blur-md rounded-2xl shadow-2xl p-8 border border-gray-800">
+                            <div class="flex space-x-2 mb-6">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                                <div class="text-sm font-mono text-gray-200">
+                                    <p class="text-primary">&lt;!DOCTYPE html&gt;</p>
+                                    <p class="text-primary">&lt;html lang="en"&gt;</p>
+                                    <p class="text-primary">&lt;head&gt;</p>
+                                    <p class="pl-4 text-primary">&lt;title&gt;<span class="text-gray-200">Your Premium
+                                            Website</span>&lt;/title&gt;</p>
+                                    <p class="text-primary">&lt;/head&gt;</p>
+                                    <p class="text-primary">&lt;body&gt;</p>
+                                    <p class="pl-4 text-primary">&lt;h1 class="<span class="text-yellow-400">text-4xl
+                                            font-bold text-gradient</span>"&gt;</p>
+                                    <p class="pl-8 text-gray-200">Welcome to Excellence</p>
+                                    <p class="pl-4 text-primary">&lt;/h1&gt;</p>
+                                    <p class="text-primary">&lt;/body&gt;</p>
+                                    <p class="text-primary">&lt;/html&gt;</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 flex justify-center">
+                                <div class="flex space-x-2">
+                                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                                    <div class="w-2 h-2 bg-secondary rounded-full animate-pulse delay-150"></div>
+                                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse delay-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative overflow-hidden section-hidden">
+        <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-dark to-transparent opacity-50"></div>
+        <div class="absolute inset-0 grid-pattern"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-light mb-6">Our <span class="text-gradient">Premium
+                        Services</span></h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">We create exceptional digital experiences with clean
+                    code and innovative design</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="card-hover bg-gray-900 bg-opacity-60 backdrop-blur-md p-8 rounded-2xl border border-gray-800 stagger-item">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-3xl mb-6 service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-light mb-4">Custom Web Development</h3>
+                    <p class="text-gray-400 mb-6">We create fully custom websites tailored to your specific needs, built
+                        from scratch with clean code and modern technologies.</p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>100% Hand-coded</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>No Templates Used</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Optimized Performance</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="card-hover bg-gray-900 bg-opacity-60 backdrop-blur-md p-8 rounded-2xl border border-gray-800 stagger-item">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center text-white text-3xl mb-6 service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-light mb-4">Responsive Design</h3>
+                    <p class="text-gray-400 mb-6">Your website will look perfect on all devices, from desktops to
+                        smartphones, using Tailwind CSS and modern responsive techniques.</p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Mobile-First Approach</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Cross-Browser Compatible</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Touch Device Optimized</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="card-hover bg-gray-900 bg-opacity-60 backdrop-blur-md p-8 rounded-2xl border border-gray-800 stagger-item">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center text-white text-3xl mb-6 service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-light mb-4">Performance Optimization</h3>
+                    <p class="text-gray-400 mb-6">We build fast, efficient websites that load quickly and provide an
+                        excellent user experience with optimized assets and code.</p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Lightning Fast Loading</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>SEO Optimized</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span>Optimized Assets</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-gray-900 relative overflow-hidden section-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark to-gray-900 opacity-90"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-light mb-6">Our <span class="text-gradient">Development
+                        Process</span></h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">How two developers create exceptional websites
+                    without using templates</p>
+            </div>
+
+            <div class="flex flex-col space-y-24">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 slide-in-left">
+                        <div class="text-6xl font-bold text-gradient opacity-50 mb-4">01</div>
+                        <h3 class="text-3xl font-bold text-light mb-6">Discovery & Planning</h3>
+                        <p class="text-xl text-gray-400 mb-6">We start by understanding your business goals, target
+                            audience, and requirements to create a detailed project plan.</p>
+                        <div class="flex space-x-4">
+                            <div class="bg-gray-800 bg-opacity-50 px-4 py-2 rounded-lg border border-gray-700">
+                                <span class="text-primary mr-2"><i class="fas fa-comments"></i></span>
+                                Client Meetings
+                            </div>
+                            <div class="bg-gray-800 bg-opacity-50 px-4 py-2 rounded-lg border border-gray-700">
+                                <span class="text-primary mr-2"><i class="fas fa-target"></i></span>
+                                Goal Setting
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center slide-in-right">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-6 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-lg opacity-30">
+                            </div>
+                            <div
+                                class="relative bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-2xl shadow-2xl p-8 border border-gray-700 w-full max-w-md">
+                                <div class="flex items-center mb-6">
+                                    <div
+                                        class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center text-primary mr-4">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-light">Requirement Analysis</h4>
+                                        <p class="text-gray-400">Understanding your vision</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-900 bg-opacity-50 p-4 rounded-xl mb-4">
+                                    <p class="text-gray-300">"We analyze your business needs and create a strategic plan
+                                        for your digital presence."</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-700 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-700 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row-reverse items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 slide-in-right">
+                        <div class="text-6xl font-bold text-gradient opacity-50 mb-4">02</div>
+                        <h3 class="text-3xl font-bold text-light mb-6">Design & Development</h3>
+                        <p class="text-xl text-gray-400 mb-6">Our two developers work together to create your website
+                            from scratch, writing clean code and implementing modern design principles.</p>
+                        <div class="flex space-x-4">
+                            <div class="bg-gray-800 bg-opacity-50 px-4 py-2 rounded-lg border border-gray-700">
+                                <span class="text-primary mr-2"><i class="fas fa-pencil-alt"></i></span>
+                                UI/UX Design
+                            </div>
+                            <div class="bg-gray-800 bg-opacity-50 px-4 py-2 rounded-lg border border-gray-700">
+                                <span class="text-primary mr-2"><i class="fas fa-code"></i></span>
+                                Pure Coding
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center slide-in-left">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-6 bg-gradient-to-r from-secondary to-accent rounded-2xl blur-lg opacity-30">
+                            </div>
+                            <div
+                                class="relative bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-2xl shadow-2xl p-8 border border-gray-700 w-full max-w-md">
+                                <div class="flex items-center mb-6">
+                                    <div
+                                        class="w-12 h-12 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center text-secondary mr-4">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-light">Development Phase</h4>
+                                        <p class="text-gray-400">Crafting your website</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-900 bg-opacity-50 p-4 rounded-xl mb-4">
+                                    <p class="text-gray-300">"We write clean, efficient code with Tailwind CSS and
+                                        modern technologies to bring your vision to life."</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 bg-gray-700 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-700 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 slide-in-left">
+                        <div class="text-6xl font-bold text-gradient opacity-50 mb-4">03</div>
+                        <h3 class="text-3xl font-bold text-light mb-6">Testing & Launch</h3>
+                        <p class="text-xl text-gray-400 mb-6">We rigorously test your website across devices and
+                            browsers before the final launch, ensuring everything works perfectly.</p>
+                        <div class="flex space-x-4">
+                            <div class="bg-gray-800 bg-opacity-50 px-4 py-2 rounded-lg border border-gray-700">
+                                <span class="text-primary mr-2"><i class="fas fa-bug"></i></span>
+                                Quality Testing
+                            </div>
+                            <div class="bg-gray-800 bg-opacity-50 px-4 py-2 rounded-lg border border-gray-700">
+                                <span class="text-primary mr-2"><i class="fas fa-server"></i></span>
+                                Deployment
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center slide-in-right">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-6 bg-gradient-to-r from-accent to-primary rounded-2xl blur-lg opacity-30">
+                            </div>
+                            <div
+                                class="relative bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-2xl shadow-2xl p-8 border border-gray-700 w-full max-w-md">
+                                <div class="flex items-center mb-6">
+                                    <div
+                                        class="w-12 h-12 bg-accent bg-opacity-20 rounded-full flex items-center justify-center text-accent mr-4">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-light">Final Review</h4>
+                                        <p class="text-gray-400">Perfecting your website</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-900 bg-opacity-50 p-4 rounded-xl mb-4">
+                                    <p class="text-gray-300">"We perform extensive testing and optimize every aspect
+                                        before launching your website to the world."</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 bg-gray-700 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-700 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-accent rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative overflow-hidden section-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-dark opacity-90"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-16 md:mb-0 slide-in-left">
+                    <h2 class="text-4xl md:text-5xl font-bold text-light mb-8">About <span
+                            class="text-gradient">Nullstack Digital</span></h2>
+                    <p class="text-xl text-gray-300 mb-8">We are a team of two passionate developers who believe in
+                        creating websites the right way - from scratch, without relying on templates.</p>
+                    <p class="text-xl text-gray-300 mb-12">Our approach ensures that your website is unique, performant,
+                        and tailored specifically to your business needs.</p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-12">
+                        <div class="bg-gray-900 bg-opacity-60 p-6 rounded-2xl border border-gray-800 stagger-item">
+                            <div class="text-4xl font-bold text-gradient mb-2">100%</div>
+                            <div class="text-gray-400">Custom Code</div>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-60 p-6 rounded-2xl border border-gray-800 stagger-item">
+                            <div class="text-4xl font-bold text-gradient mb-2">2</div>
+                            <div class="text-gray-400">Expert Developers</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <div
+                            class="bg-gray-900 bg-opacity-60 py-2 px-6 rounded-full border border-gray-800 text-gray-300 flex items-center stagger-item">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            Tailwind CSS
+                        </div>
+                        <div
+                            class="bg-gray-900 bg-opacity-60 py-2 px-6 rounded-full border border-gray-800 text-gray-300 flex items-center stagger-item">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            JavaScript
+                        </div>
+                        <div
+                            class="bg-gray-900 bg-opacity-60 py-2 px-6 rounded-full border border-gray-800 text-gray-300 flex items-center stagger-item">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            HTML5
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center slide-in-right">
+                    <div class="relative">
+                        <div
+                            class="absolute -inset-8 bg-gradient-to-r from-primary to-secondary rounded-3xl blur-xl opacity-20">
+                        </div>
+                        <div
+                            class="relative bg-gray-900 bg-opacity-70 backdrop-blur-md rounded-3xl shadow-2xl p-10 border border-gray-800 max-w-md">
+                            <div class="text-center mb-10">
+                                <h3 class="text-2xl font-bold text-light mb-2">Our Team</h3>
+                                <p class="text-gray-400">Two developers, one mission</p>
+                            </div>
+
+                            <div class="space-y-8">
+                                <div class="flex items-center stagger-item">
+                                    <div
+                                        class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-4xl mr-6">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-light text-xl">Frontend Specialist</h4>
+                                        <p class="text-gray-400 mb-2">UI/UX Design & Development</p>
+                                        <div class="flex space-x-2">
+                                            <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                            <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                            <div class="w-2 h-2 bg-gray-700 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center stagger-item">
+                                    <div
+                                        class="w-24 h-24 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center text-white text-4xl mr-6">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-light text-xl">Backend Specialist</h4>
+                                        <p class="text-gray-400 mb-2">Functionality & Performance</p>
+                                        <div class="flex space-x-2">
+                                            <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                            <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                                            <div class="w-2 h-2 bg-gray-700 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-10 pt-8 border-t border-gray-800">
+                                <p class="text-gray-300 text-center italic">"We combine our skills to create exceptional
+                                    websites with pure code, no templates."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-900 relative overflow-hidden section-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark to-gray-900 opacity-90"></div>
+        <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary to-transparent opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-light mb-6">Get In <span
+                        class="text-gradient">Touch</span></h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Ready to build a custom website from scratch? Contact
+                    us today for a free consultation.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 slide-in-left">
+                    <form
+                        class="bg-gray-800 bg-opacity-60 backdrop-blur-md rounded-2xl shadow-2xl p-10 border border-gray-700">
+                        <div class="mb-8">
+                            <label for="name" class="block text-light font-medium mb-3">Your Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-6 py-4 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-light placeholder-gray-500 transition-all duration-300"
+                                placeholder="Enter your name">
+                        </div>
+                        <div class="mb-8">
+                            <label for="email" class="block text-light font-medium mb-3">Email Address</label>
+                            <input type="email" id="email"
+                                class="w-full px-6 py-4 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-light placeholder-gray-500 transition-all duration-300"
+                                placeholder="Enter your email">
+                        </div>
+                        <div class="mb-8">
+                            <label for="message" class="block text-light font-medium mb-3">Your Message</label>
+                            <textarea id="message" rows="5"
+                                class="w-full px-6 py-4 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-light placeholder-gray-500 transition-all duration-300"
+                                placeholder="Tell us about your project"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="lg:w-1/2 slide-in-right">
+                    <div
+                        class="bg-gray-800 bg-opacity-60 backdrop-blur-md rounded-2xl shadow-2xl p-10 border border-gray-700 h-full">
+                        <h3 class="text-2xl font-bold text-light mb-10">Contact Information</h3>
+
+                        <div class="space-y-8">
+                            <div class="flex items-start stagger-item">
+                                <div
+                                    class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center text-primary text-xl mr-6 flex-shrink-0">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-light text-lg">Email</h4>
+                                    <p class="text-gray-400">nullstackdigital@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start stagger-item">
+                                <div
+                                    class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center text-primary text-xl mr-6 flex-shrink-0">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-light text-lg">Phone</h4>
+                                    <p class="text-gray-400">+63 976 366 5314</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start stagger-item">
+                                <div
+                                    class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center text-primary text-xl mr-6 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-light text-lg">Location</h4>
+                                    <p class="text-gray-400">Manila, Philippines</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-16">
+                            <h4 class="font-bold text-light text-lg mb-6">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/profile.php?id=61580511684341"
+                                    class="w-12 h-12 bg-gray-900 bg-opacity-50 rounded-xl flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary border border-gray-800 transition-all duration-300 stagger-item">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-gray-900 bg-opacity-50 rounded-xl flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary border border-gray-800 transition-all duration-300 stagger-item">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-gray-900 bg-opacity-50 rounded-xl flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary border border-gray-800 transition-all duration-300 stagger-item">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-gray-900 bg-opacity-50 rounded-xl flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary border border-gray-800 transition-all duration-300 stagger-item">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-16 border-t border-gray-800 section-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <span class="text-2xl font-bold text-gradient">Nullstack<span
+                            class="text-accent">Digital</span></span>
+                    <p class="mt-2 text-gray-500">Building custom websites from scratch</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.facebook.com/profile.php?id=61580511684341"
+                        class="text-gray-500 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-12 text-center text-gray-500">
+                <p>&copy; 2025 Nullstack Digital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
